@@ -182,8 +182,7 @@ function App() {
     </div>
     {lastDirection ? <h2 className='infoText'>You swiped {lastDirection}</h2> : <h2 className='infoText' />}
   </div>
-    
-  );
+      );
 }
 
 export default App;
