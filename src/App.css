@@ -60,7 +60,25 @@ Latest commit 3df22c5 on Oct 7, 2020
 .row>* {
   margin: 5px;
 }
+.imageDiv {
+height:200px;
+width:450px;
+text-align:center;
+}
+.imageSize{
 
+    max-width: 100%;
+min-height:100%;
+    height: auto;
+}
+.tabPanel {
+  height:400px;
+  overflow: hidden;
+
+}
+.tabClass {
+  width:20px;
+}
 h1 {
   font-family: 'Damion', cursive;
   color: #fff;
