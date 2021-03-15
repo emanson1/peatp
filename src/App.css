@@ -60,8 +60,18 @@ Latest commit 3df22c5 on Oct 7, 2020
 .row>* {
   margin: 5px;
 }
+.dataLayer {
+
+width:100%;
+height:100px;
+border-radius: 25px;
+border: 2px solid white;
+  /* position:relative;
+top:450px;
+right:1px;  */
+}
 .imageDiv {
-height:200px;
+height:400px;
 /* width:450px; */
 text-align:center;
 }
@@ -72,12 +82,22 @@ text-align:center;
     height: auto;
 }
 .tabPanel {
+  opacity: 0.8;
+  font-weight: bold;
+  border-radius: 25px;
+  border: 2px solid white;
+  padding: 10px;
+  position:absolute;
+  top:25px;
+  left:0px;
   height:400px;
+  width:436px;
   overflow: hidden;
+  background-color:white;
 
 }
 .tabClass {
-  width:20px;
+  width:2px;
 }
 h1 {
   font-family: 'Damion', cursive;
@@ -99,14 +119,18 @@ h2 {
   height: 500px;
 }
 .instrumentName{
+ 
 text-align:center;
 color:blue;
+
 
 }
 
 .instrumentText{
   text-align:center;
   color:black;
+  /* position: relative;
+  top: -18px; */
 }
 .card {
   position: relative;
