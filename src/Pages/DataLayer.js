@@ -5,7 +5,7 @@ import TradingViewWidget from 'react-tradingview-widget';
 function  DataLayer(props) {
   const { instrument } = props;
       return (
-        
+        <React.Fragment>
         <TradingViewWidget 
         symbol={instrument.Symbol}
         autosize
@@ -13,6 +13,7 @@ function  DataLayer(props) {
         hide_top_toolbar="true"
         hide_legend ="true"
         />
+    </React.Fragment>
       );
 
 }

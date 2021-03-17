@@ -13,7 +13,7 @@ import ThumbDown from '@material-ui/icons/ThumbDown';
 import ThumbUp from '@material-ui/icons/ThumbUp';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import DataLayer from '../Pages/DataLayer';
+import * as Constants from '../Shared/Constants';
 
 
 
@@ -62,6 +62,20 @@ const useStyles = makeStyles((theme) => ({
 export default function ScrollableTabsButtonAuto(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(-1);
+  const [data, setData] = React.useState({});
+  //const {finTechURL} = Constants;
+   const finTechApiKey="c18kb1f48v6oak5hbkl0";
+   const finTechURL="https://finnhub.io/api/v1/stock/metric?symbol={symbol}&metric=all&token=" + finTechApiKey;
+let metric={};
+let series={};
+  React.useEffect(() => {
+    fetch( finTechURL.toString().replace('{symbol}',props.instrument.Symbol))
+      .then(results => results.json())
+      .then(data => {
+        setData(data);
+           });
+  }, []); // <-- Have to pass in [] here!
+
   const handleClick =() => {
     setValue(-1);
   };
@@ -71,7 +85,9 @@ export default function ScrollableTabsButtonAuto(props) {
   };
 
   return (
+  <div>
     <div className={classes.root}  onClick={(e)=>handleClick(e)}>
+      {/* {JSON.stringify(props.instrument.Description)} */}
       <AppBar position="static">
         <Tabs
           value={value}
@@ -86,7 +102,7 @@ export default function ScrollableTabsButtonAuto(props) {
           contentContainerStyle={{background: '#FFF'}}
         >
 
-          <Tab  icon={<DescriptionIcon />} aria-label="Description" {...a11yProps(0)} />
+          {/* <Tab  icon={<DescriptionIcon />} aria-label="Description" {...a11yProps(0)} /> */}
           <Tab  icon={<ShowChartIcon />} aria-label="MarketCapacity" {...a11yProps(1)} />
           <Tab  icon={<PersonPinIcon />} aria-label="InstitionalOwnership" {...a11yProps(2)} />
           <Tab  icon={<HelpIcon />} aria-label="DebtToEquityRatio" {...a11yProps(3)} />
@@ -96,33 +112,40 @@ export default function ScrollableTabsButtonAuto(props) {
           <Tab  icon={<ThumbUp />} aria-label="SocialResponsibility" {...a11yProps(7)} />
         </Tabs>
       </AppBar>
-      <div className='dataLayer'><DataLayer instrument={props.instrument}></DataLayer></div>
+    
        
-      <TabPanel className="tabPanel" value={value} index={0}>
-        <strong>Description<hr/>
-       {props.instrument.Description}</strong>        
+      <TabPanel value={value} index={0}>
+      <div className="descriptionPanel">{props.instrument.Description}</div>
+        <div className="tabPanel" ><strong>Metrics</strong><hr/>
+        {JSON.stringify(data.metric)}</div>         
       </TabPanel>
-      <TabPanel className="tabPanel" value={value} index={1}>
-      <strong>Market Capacity<hr/>
-        {props.instrument.MarketCapacity}</strong>         
+      <TabPanel value={value} index={1}>
+      <div className="descriptionPanel">{props.instrument.Description}</div>
+        <div className="tabPanel" ><strong>Market Capacity</strong><hr/>
+        {props.instrument.MarketCapacity}</div>         
       </TabPanel>
       <TabPanel className="tabPanel"  value={value} index={2}>
-      <strong>Institutional Ownership<hr/>
-        {props.instrument.InstitionalOwnership}</strong>         
+      <div className="descriptionPanel">{props.instrument.Description}</div>
+       <div className="tabPanel" ><strong>Institutional Ownership</strong><hr/>
+        {props.instrument.InstitionalOwnership}</div>      
       </TabPanel>
       <TabPanel className="tabPanel" value={value} index={3}>
+      <div className="descriptionPanel">{props.instrument.Description}</div>
       <strong> Debt To Equity Ratio<hr/>
         {props.instrument.DebtToEquityRatio}</strong> 
       </TabPanel>
       <TabPanel className="tabPanel" value={value} index={4}>
+      <div className="descriptionPanel">{props.instrument.Description}</div>
       <strong>Earnings Per Share<hr/>
         {props.instrument.EarningsPerShare}</strong> 
       </TabPanel>
       <TabPanel className="tabPanel" value={value} index={5}>
+      <div className="descriptionPanel">{props.instrument.Description}</div>
       <strong>Net Margin<hr/>
         {props.instrument.NetMargin}</strong> 
       </TabPanel>
       <TabPanel className="tabPanel" value={value} index={6}>
+      <div className="descriptionPanel">{props.instrument.Description}</div>
       <strong>Future<hr/>
         {props.instrument.Future}</strong> 
       </TabPanel>
@@ -130,6 +153,7 @@ export default function ScrollableTabsButtonAuto(props) {
       <strong>Social Responsibility <hr/>
         {props.instrument.SocialResponsibility}</strong> 
       </TabPanel>
-    </div>
+    </div></div>
+    
   );
 }
