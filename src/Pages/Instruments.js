@@ -2,11 +2,36 @@ import React, { useState } from 'react'
 
 import {Paper, Grid} from '@material-ui/core';
 import TinderCard from 'react-tinder-card';
-import TabPanel from '../Pages/Dashboard';
-import DataLayer from '../Pages/DataLayer';
+import InstrumentWrapper from '../Pages/InstrumentWrapper';
+import NavBarDetails from '../Pages/NavBarDetails';
+import MarketCapacity from '../Pages/MarketCapacity';
+import Description from '../Pages/Description';
+import Blank from '../Pages/Blank';
+import InstitutionalOwnership from '../Pages/InstitutionalOwnership';
+import DebtToEquityRatio from '../Pages/DebtToEquityRatio';
+import EarningsPerShare from '../Pages/EarningsPerShare';
+import NetMargin from '../Pages/NetMargin';
+import Future from '../Pages/Future';
+import SocialResponsibility from '../Pages/SocialResponsibility';
+
+
 import {View} from 'react-native';
 
 function Instruments() {
+  const [selectedTab, setSelectedTab] = useState('instrument');
+
+  const tabs = {
+    'blank': Blank,
+    'description':  Description,
+    'marketcapacity': MarketCapacity,
+    'instituionalownership': InstitutionalOwnership,
+    'debttoequityownership': DebtToEquityRatio,
+    'earningspershare': EarningsPerShare,
+    'netmargin': NetMargin,
+    'future': Future,
+    'socailresponsibility':SocialResponsibility
+    }
+  
   const Instruments = [
     {
     "Id": 1,
@@ -129,9 +154,10 @@ function Instruments() {
     wdith: 10,
 
   };
-  
+  const [selectedTabDetails, setSelectedTabDetails]=useState('blank');
   const instruments = Instruments;
   const [lastDirection, setLastDirection] = useState();
+  const [selectedData, setSelectedData] = useState('blank');
   const [selected, setSelected] = useState([]);
   const [rejected, setRejected] = useState([]);
   const swiped = (direction, sel,rej, nameToDelete) => {
@@ -167,32 +193,24 @@ function Instruments() {
   }
   
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    // <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     <div>
    <div className='cardContainer'>
       {instruments.map((instrument) =>
+
         <TinderCard className='swipe' key={instrument.name} onSwipe={(dir) => swiped(dir, selected?selected:[{}], rejected?rejected:[{}], instrument.Title)} onCardLeftScreen={() => outOfFrame(instrument.name)}>
           <div className='card'>
-            <p className='instrumentName'>{instrument.Title}</p>
-          
-            <div className='imageDiv' style={{backgroundImage: `url(${instrument.Icon})`,
-             backgroundPosition: 'center',
-               backgroundSize: '100% 100%',
-              backgroundRepeat: 'no-repeat'
-             }}>
-             </div>
-         
-          <p><TabPanel instrument={instrument}/></p>
-            
-           
+          <InstrumentWrapper selectedTabDetails={selectedTabDetails} instrument={instrument}/>
+          {/* <NavBarDetails setSelectedTab={setSelectedTabDetails}/> */}
           </div>
-          <div className='dataLayer'><DataLayer instrument={instrument}></DataLayer></div>
+          
            
         </TinderCard>
         )}
     </div>
   </div>
-</View>      );
+// </View>
+      );
 }
 
 export default Instruments;
