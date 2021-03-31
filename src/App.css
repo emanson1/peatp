@@ -44,6 +44,10 @@ right:1px;
 height:400px;
 /* width:450px; */
 text-align:center;
+/* position:relative;
+top:-10px; */
+
+
 }
 
 .imageSize{
@@ -98,6 +102,13 @@ h2 {
 color: blue;
 font-weight: bold;
 /* padding: 10px; */
+}
+.transparent {
+  opacity: 0.9;
+  background-color: blue;
+  color:white;
+  height:0px;
+
 }
 .detailLinkContainer {
 background-color:white;
