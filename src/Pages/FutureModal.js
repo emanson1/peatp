@@ -1,6 +1,9 @@
+import React from 'react';
 import {Grid, Box} from '@material-ui/core';
-export default function Future (props) {
-const {instrument}=props;
+export default function FutureModal (props) {
+  const {modalProps, handleClose}=props;
+  const instrument=modalProps.instrument;
+  
     return(
         <div className='cardContainer'>
       <Grid container direction="row" justify="center" alignItems="center">

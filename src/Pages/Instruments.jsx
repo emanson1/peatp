@@ -2,32 +2,31 @@ import React, { useState } from 'react'
 
 import {Paper, Grid} from '@material-ui/core';
 import TinderCard from 'react-tinder-card';
-import InstrumentWrapper from '../Pages/InstrumentWrapper';
-import NavBarDetails from '../Pages/NavBarDetails';
-import MarketCapacity from '../Pages/MarketCapacity';
-import Description from '../Pages/Description';
-import Blank from '../Pages/Blank';
-import InstitutionalOwnership from '../Pages/InstitutionalOwnership';
-import DebtToEquityRatio from '../Pages/DebtToEquityRatio';
-import EarningsPerShare from '../Pages/EarningsPerShare';
-import NetMargin from '../Pages/NetMargin';
-import Future from '../Pages/Future';
-import SocialResponsibility from '../Pages/SocialResponsibility';
+import InstrumentWrapper from './InstrumentWrapper';
+import NavBarDetails from './NavBarDetails';
+import MarketCapacity from './MarketCapacityModal';
+import Description from './Description';
+import InstitutionalOwnership from './InstitutionalOwnershipModal';
+import DebtToEquityRatio from './DebtToEquityRatioModal';
+import EarningsPerShare from './EarningsPerShareModal';
+import Future from './FutureModal';
+import SocialResponsibility from './ResponsibilityModal';
+
 
 
 import {View} from 'react-native';
 
-function Instruments() {
+function Instruments(props) {
+  
+  const {handleClose,handleOpen} = props;
+  
   const [selectedTab, setSelectedTab] = useState('instrument');
 
   const tabs = {
-    'blank': Blank,
     'description':  Description,
     'marketcapacity': MarketCapacity,
     'instituionalownership': InstitutionalOwnership,
-    'debttoequityownership': DebtToEquityRatio,
     'earningspershare': EarningsPerShare,
-    'netmargin': NetMargin,
     'future': Future,
     'socailresponsibility':SocialResponsibility
     }
@@ -196,11 +195,13 @@ function Instruments() {
     // <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     <div>
    <div className='cardContainer'>
+  
+      
       {instruments.map((instrument) =>
 
         <TinderCard className='swipe' key={instrument.name} onSwipe={(dir) => swiped(dir, selected?selected:[{}], rejected?rejected:[{}], instrument.Title)} onCardLeftScreen={() => outOfFrame(instrument.name)}>
           <div className='card'>
-          <InstrumentWrapper selectedTabDetails={selectedTabDetails} instrument={instrument}/>
+          <InstrumentWrapper handleOpen={handleOpen}  handleClose={handleClose} selectedTabDetails={selectedTabDetails} instrument={instrument}/>
           {/* <NavBarDetails setSelectedTab={setSelectedTabDetails}/> */}
           </div>
           

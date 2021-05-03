@@ -41,7 +41,7 @@ top:450px;
 right:1px;
 }
 .imageDiv {
-height:400px;
+height:200px;
 /* width:450px; */
 text-align:center;
 /* position:relative;
@@ -93,6 +93,9 @@ h2 {
   position: absolute;
 }
 .borderBottom{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   border-bottom: 1px grey solid;
 }
 .borderTop{
@@ -116,15 +119,35 @@ height:50px;
 overflow-y:hidden;
 overflow-x:scroll;
 }
+.linkClassRow
+{
+  background-color: blue;
+  color:white;
+  padding-bottom: 5px;
+  position:relative;
+  top:178px
+}
+.linkClass
+{
+  color:white;
+  padding: 5px;
+  font-size:small;
+}
 .cardLinksBottom {
   background-color: blue;
   font:white;
-  font-size: 14pt;
+  position: fixed;
+  /* top: -70px; */
   color:white;
   padding-bottom: 5px;
   border-radius: 0 0 10px 10px;
-position: relative;
-top: -10px;
+  width: 90vw;
+  max-width: 460px;
+  /* width:100%;
+  max-width:90%;
+   */
+ 
+
 }
 .cardTitle {
   background-color: blue;
@@ -145,8 +168,7 @@ font-weight:bold;
 .cardContainer {
   width: 90vw;
   max-width: 460px;
-  height: 500px;
-  
+  height: 400px;
 }
 .instrumentName{
  

@@ -1,5 +1,6 @@
+import React from 'react';
 import {Grid, Box} from '@material-ui/core';
-export default function NetMargin (props) {
+export default function NetMarginModal (props) {
 const {instrument}=props;
     return(
         <div className='cardContainer'>
