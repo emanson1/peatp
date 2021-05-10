@@ -4,13 +4,7 @@ import {Paper, Grid} from '@material-ui/core';
 import TinderCard from 'react-tinder-card';
 import InstrumentWrapper from './InstrumentWrapper';
 import NavBarDetails from './NavBarDetails';
-import MarketCapacity from './MarketCapacityModal';
 import Description from './Description';
-import InstitutionalOwnership from './InstitutionalOwnershipModal';
-import DebtToEquityRatio from './DebtToEquityRatioModal';
-import EarningsPerShare from './EarningsPerShareModal';
-import Future from './FutureModal';
-import SocialResponsibility from './ResponsibilityModal';
 
 
 
@@ -24,11 +18,6 @@ function Instruments(props) {
 
   const tabs = {
     'description':  Description,
-    'marketcapacity': MarketCapacity,
-    'instituionalownership': InstitutionalOwnership,
-    'earningspershare': EarningsPerShare,
-    'future': Future,
-    'socailresponsibility':SocialResponsibility
     }
   
   const Instruments = [

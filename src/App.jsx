@@ -4,7 +4,6 @@ import {Route, BrowserRouter as Router} from 'react-router-dom';
 import './App.css';
 import {Paper, Grid, Box, Typography} from '@material-ui/core';
 import TinderCard from 'react-tinder-card';
-import TabPanel from './Pages/DashboardModal';
 import DataLayer from './Pages/DataLayer';
 import Instruments from './Pages/Instruments';
 import NavBar from './Pages/NavBar';
@@ -55,8 +54,6 @@ function App(props) {
     <React.Fragment>
      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     <Box>
-      open{open.toString()}<br/>
-      modalProps{JSON.stringify(modalProps)}<br/>
       {/* //modalTypes{modalTypes.toString()} */}
     <Router>
     {/* <Route exact path='/' component={tabs[selectedTab]}/> */}

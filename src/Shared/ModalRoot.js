@@ -1,25 +1,19 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import { Dialog } from '@material-ui/core';
+import { Dialog,Grid } from '@material-ui/core';
 import {connect} from 'react-redux';
-import { propTypes } from "react-tinder-card";
 import { hideModal } from '../actions/bluevilleActions';
-// import ConfirmationModal from '../Pages/ConfirmationModal';
-// import SucessModal from '../Pages/SucessModal';
-import EarningsPerShareModal from '../Pages/EarningsPerShareModal';
-import MarketCapacityModal from '../Pages/MarketCapacityModal';
-import DebtToEquityRatioModal from '../Pages/DebtToEquityRatioModal';
-import ResponsiblityModal from '../Pages/ResponsibilityModal';
-import NetMarginModal from '../Pages/NetMarginModal';
-import GrossMarginModal from '../Pages/GrossMarginModal';
-import SettingsModal from '../Pages/SettingsModal';
-import DashboardModal from '../Pages/DashboardModal';
-import WishlistModal from '../Pages/WishlistModal';
-import FutureModal from '../Pages/FutureModal';
-// import MarketPlaceModal from '../Pages/MarketPlaceModal';
-// import AccountModal from '../Pages/AccountModal';
-
+import EarningsPerShareModal from '../Modals/EarningsPerShareModal';
+import MarketCapacityModal from '../Modals/MarketCapacityModal';
+import DebtToEquityRatioModal from '../Modals/DebtToEquityRatioModal';
+import ResponsiblityModal from '../Modals/ResponsibilityModal';
+import NetMarginModal from '../Modals/NetMarginModal';
+import GrossMarginModal from '../Modals/GrossMarginModal';
+import SettingsModal from '../Modals/SettingsModal';
+import DashboardModal from '../Modals/DashboardModal';
+import WishlistModal from '../Modals/WishlistModal';
+import FutureModal from '../Modals/FutureModal';
+import CloseIcon from '@material-ui/icons/Close';
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
@@ -80,8 +74,17 @@ return (
   aria-labelledby="simple-modal-title"
   aria-describedby="simple-modal-description"
 >
-<div>
-  <SpecificModal handleClose={props.hideModal} modalProps={modalProps}/>
+<div className='modalRoot'>
+
+<Grid container className='blue'>
+  <Grid item xs={1}>
+<CloseIcon onClick={props.hideModal}/>
+</Grid>
+<Grid item xs={10}>
+     <div className='modalTitle'> {`${instrument.Title} (${instrument.Symbol})`}</div>
+  </Grid>
+</Grid>
+<SpecificModal handleClose={props.hideModal} modalProps={modalProps}/>
 </div>
 </Dialog>
 

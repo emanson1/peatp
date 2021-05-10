@@ -5,6 +5,21 @@ import {showModal, hideModal} from '../actions/bluevilleActions';
 import Marquee from 'react-double-marquee';
 import NavBar from './NavBar';
 import { connect } from 'react-redux';
+import FIconBankMoney from '../Images/FIconBankMoney.png';
+import FIconBlockPyramid from '../Images/FIconBlockPyramid.png';
+import FIconCoinDollarSign from '../Images/FIconCoinDollarSign.png';
+import FIconCalculator from '../Images/FIconCalculator.png';
+import FIconDiamond from '../Images/FIconDiamond.png';
+import FIconGavel from '../Images/FIconGavel.png';
+import FIconMoneyBag from '../Images/FIconMoneyBag.png';
+import FIconPiggyBank from '../Images/FIconPiggyBank.png';
+import FIconScales from '../Images/FIconScales.png';
+import FIconTrendDown from '../Images/FIconTrendDown.png';
+import FIconTrendGraph from '../Images/FIconTrendGraph.png';
+import FIconTrendUp from '../Images/FIconTrendUp.png';
+import FIconUmbrella from '../Images/FIconUmbrella.png';
+import FIconUpDown from '../Images/FIconUpDown.png';
+
 
 const tabs = {
   // 'instrument': Instruments,
@@ -86,20 +101,24 @@ const InstrumentWrapper = props => {
         )
       })}
 
-</Marquee>
-
-    </div>
-    <Grid container direction='row' className='linkClassRow'>
-  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'DebtToEquityRatio', instrument:instrument})}>Debt/Inc</a></div></Grid>
-  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'MarketCapacity', instrument:instrument})}>Market Cap</a></div></Grid>
-  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'NetMargin', instrument:instrument})}>Net Margin</a></div></Grid>
-  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'Future', instrument:instrument})}>Future</a></div></Grid>
-  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'Earnings', instrument:instrument})}>Earnings</a></div></Grid>
-  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'Responsiblity', instrument:instrument})}>Social Resp</a></div></Grid>
+</Marquee></div>
+<div className='linkClassRow'>
+  <Grid container direction='row'>
+  <Grid item xs={2}><div><a  onClick={()=>testModal({open:true, modalType:'DebtToEquityRatio', instrument:instrument})}><img className='linkClass' src={FIconUmbrella} alt='Debt/Inc' title='Debt/Inc'/></a></div></Grid>
+  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'MarketCapacity', instrument:instrument})}><img className='linkClass' src={FIconBlockPyramid} alt='Market Capitalization' title='Market Capitalization'/></a></div></Grid>
+  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'NetMargin', instrument:instrument})}><img className='linkClass' src={FIconCalculator} alt='Net Margin' title='Net MArgin'/></a></div></Grid>
+  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'Future', instrument:instrument})}><img className='linkClass' src={FIconTrendGraph} alt='Future' title='Future'/></a></div></Grid>
+  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'EarningsPerShare', instrument:instrument})}><img className='linkClass' src={FIconPiggyBank} alt='Earnings' title='Earnings'/></a></div></Grid>
+  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'Responsiblity', instrument:instrument})}><img className='linkClass' src={FIconScales} alt='Social Responsiblity' title='Social Responsibility'/>Social Resp</a></div></Grid>
 </Grid>
-      </div> 
-      <div style={{position:'relative',top:'28px',height:'240px',overflowY:'hidden'}}>{instrument.Description}</div>
-      <NavBar style={{position:'relative',top:'550px'}}/>
+<div className='descriptionRow'>{instrument.Description}</div>
+<NavBar /> 
+    </div>
+    </div>
+
+      
+
+      
   
       </React.Fragment>
     

@@ -8,7 +8,20 @@
   /* background: linear-gradient(#fff, #999); */
   background: linear-gradient(#e66465, #9198e5);
 }
-
+.modalClass{
+  background-color:white;
+  opacity: 0.9;
+height:400px;
+width:300px;
+}
+.descriptionRow{
+  background-color:white;
+  color:blue;
+  border:blue 3px solid;
+  border-radius: 10px;
+  max-height: 300px;
+  overflow-y:scroll;
+}
 #root>div {
   display: flex;
   flex-direction: column;
@@ -124,14 +137,18 @@ overflow-x:scroll;
   background-color: blue;
   color:white;
   padding-bottom: 5px;
-  position:relative;
+  opacity:100;
+  position: relative;
   top:178px
 }
 .linkClass
 {
   color:white;
-  padding: 5px;
+  padding-right: 5px;
+  padding-top:5px;
   font-size:small;
+  height:40px;
+  width:40px;
 }
 .cardLinksBottom {
   background-color: blue;
@@ -149,10 +166,22 @@ overflow-x:scroll;
  
 
 }
+.blue {
+  background-color:blue;
+}
+.modalTitle {
+  
+  font:white;
+  font-size: 14pt;
+  color:white;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
 .cardTitle {
   background-color: blue;
   font:white;
-  font-size: 18pt;
+  font-size: 14pt;
   color:white;
   padding-bottom: 5px;
   border-radius: 10px 10px 0 0;
