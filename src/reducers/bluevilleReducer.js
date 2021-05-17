@@ -4,7 +4,8 @@ const initialState = {
     modalType: null,
     modalProps: {
       open: false,
-      instrument: {}
+      instrument: {},
+      background:{}
     }
   }
 

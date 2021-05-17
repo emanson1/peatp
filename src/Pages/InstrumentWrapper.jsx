@@ -19,7 +19,24 @@ import FIconTrendGraph from '../Images/FIconTrendGraph.png';
 import FIconTrendUp from '../Images/FIconTrendUp.png';
 import FIconUmbrella from '../Images/FIconUmbrella.png';
 import FIconUpDown from '../Images/FIconUpDown.png';
+import Icon1 from '../Images/Icon 1.png';
+import Icon2 from '../Images/Icon 2.png';
+import Icon3 from '../Images/Icon 3.png';
+import Icon4 from '../Images/Icon 4.png';
+import Icon5 from '../Images/Icon 5.png';
+import Icon6 from '../Images/Icon 6.png';
+import Icon7 from '../Images/Icon 7.png';
+import Icon8 from '../Images/Icon 8.png';
+import Icon9 from '../Images/Icon 9.png';
+import Icon10 from '../Images/Icon 10.png';
+import Icon11 from '../Images/Icon 11.png';
+import Icon12 from '../Images/Icon 12.png';
+import Icon13 from '../Images/Icon 13.png';
+import Icon14 from '../Images/Icon 14.png';
+import Icon15 from '../Images/Icon 15.png';
+import Icon16 from '../Images/Icon 16.png';
 
+import Sample from '../Images/Sample.png';
 
 const tabs = {
   // 'instrument': Instruments,
@@ -40,6 +57,19 @@ const InstrumentWrapper = props => {
   const {handleClose, handleOpen} = props;
   const classes = useStyles();
   const initialMetrics = [{ descr: '52 Week Low/High', metric1: { name: '52WeekLow', className: 'red' }, metric2: { name: '52WeekHigh', className: 'red' } }, { descr: 'BVPS Annual/Qrtly', metric1: { name: 'bookValuePerShareAnnual', className: 'conditional' }, metric2: { name: 'bookValuePerShareQuarterly', className: 'conditional' } }];
+  const yahooApiKey="{'x-rapidapi-key': 'c4ec02c063msheb9801e4d3fbff0p1b74b2jsn0620426f7540','x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com'}";
+  const yahooURL="https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-summary?symbol={symbol}&region=US";
+  var options = {
+    method: 'GET',
+    url: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-summary',
+    params: {symbol: 'AMRN', region: 'US'},
+    headers: {
+      'x-rapidapi-key': 'c4ec02c063msheb9801e4d3fbff0p1b74b2jsn0620426f7540',
+      'x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com'
+    }
+  };
+  
+  
   const finTechApiKey = "c18kb1f48v6oak5hbkl0";
   const finTechURL = "https://finnhub.io/api/v1/stock/metric?symbol={symbol}&metric=all&token=" + finTechApiKey;
  // const {modalProps, setModalProps} = useState({open:false});
@@ -49,18 +79,33 @@ const InstrumentWrapper = props => {
   const [selectedMetrics, setSelectedMetrics] = useState(initialMetrics);
   const [value, setValue] = useState(-1);
   const [data, setData] = useState();
+  const [yahooData, setYahooData] = useState();
   //const {finTechURL} = Constants;
   
   let metric = {};
   let series = {};
+  
+  async function setInstrumentState(){
+    await fetch(finTechURL.toString().replace('{symbol}', instrument.Symbol)).then(results => results.json())
+    .then(data => {setData(data); setMetrics(data.metric);});
+
+    await fetch(yahooURL.toString().replace('{symbol}', instrument.Symbol), 
+    {"method": "GET",
+	    "headers": {
+		"x-rapidapi-key": "c4ec02c063msheb9801e4d3fbff0p1b74b2jsn0620426f7540",
+		"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
+	}
+})
+.then(response => {
+	setYahooData(response);
+})
+.catch(err => {
+	console.error(err);
+});
+    
+}
   useEffect(() => {
-    fetch(finTechURL.toString().replace('{symbol}', instrument.Symbol))
-      .then(results => results.json())
-      .then(data => {
-        setData(data);
-        setMetrics(data.metric);
-   
-      });
+    setInstrumentState();
   }, []); // <-- Have to pass in [] here!
 
   const handleClick = () => {
@@ -77,9 +122,9 @@ const InstrumentWrapper = props => {
     instrument !== undefined && instrument !==null &&
     <React.Fragment>
       <Grid container className='cardTitle'>
-      <Grid item xs={2} className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'Wishlist', instrument:instrument})}>Wishlist</a></Grid>
+      <Grid item xs={2} className='linkClassPlain'><a  onClick={()=>testModal({open:true, modalType:'Wishlist', instrument:instrument})}>Wishlist</a></Grid>
         <Grid item xs={8}>{`${instrument.Title} (${instrument.Symbol})`}</Grid>
-        <Grid item xs={2} className='linkClass'>Account</Grid>
+        <Grid item xs={2} className='linkClassPlain'>Account</Grid>
       </Grid>
       <div className='imageDiv' style={{
       backgroundImage: `url(${instrument.Icon})`,
@@ -102,20 +147,21 @@ const InstrumentWrapper = props => {
       })}
 
 </Marquee></div>
-<div className='linkClassRow'>
+<div   className='linkClassRow' >
+  <div className='linkClassContainer'>
   <Grid container direction='row'>
-  <Grid item xs={2}><div><a  onClick={()=>testModal({open:true, modalType:'DebtToEquityRatio', instrument:instrument})}><img className='linkClass' src={FIconUmbrella} alt='Debt/Inc' title='Debt/Inc'/></a></div></Grid>
-  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'MarketCapacity', instrument:instrument})}><img className='linkClass' src={FIconBlockPyramid} alt='Market Capitalization' title='Market Capitalization'/></a></div></Grid>
-  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'NetMargin', instrument:instrument})}><img className='linkClass' src={FIconCalculator} alt='Net Margin' title='Net MArgin'/></a></div></Grid>
-  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'Future', instrument:instrument})}><img className='linkClass' src={FIconTrendGraph} alt='Future' title='Future'/></a></div></Grid>
-  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'EarningsPerShare', instrument:instrument})}><img className='linkClass' src={FIconPiggyBank} alt='Earnings' title='Earnings'/></a></div></Grid>
-  <Grid item xs={2}><div className='linkClass'><a  onClick={()=>testModal({open:true, modalType:'Responsiblity', instrument:instrument})}><img className='linkClass' src={FIconScales} alt='Social Responsiblity' title='Social Responsibility'/>Social Resp</a></div></Grid>
+  <Grid item xs={2}><div><a  onClick={()=>testModal({open:true, modalType:'DebtToEquityRatio', instrument:instrument, background:Icon1})}><img className='linkClass' src={Icon1} alt='Debt/Inc' title='Debt/Inc'/></a></div></Grid>
+  <Grid item xs={2}><div><a  onClick={()=>testModal({open:true, modalType:'MarketCapacity', instrument:instrument, background:Icon2})}><img className='linkClass' src={Icon2} alt='Market Capitalization' title='Market Capitalization'/></a></div></Grid>
+  <Grid item xs={2}><div><a  onClick={()=>testModal({open:true, modalType:'NetMargin', instrument:instrument, background:Icon3})}><img className='linkClass' src={Icon3} alt='Net Margin' title='Net MArgin'/></a></div></Grid>
+  <Grid item xs={2}><div><a  onClick={()=>testModal({open:true, modalType:'Future', instrument:instrument, background:Icon4})}><img className='linkClass' src={Icon4} alt='Future' title='Future'/></a></div></Grid>
+  <Grid item xs={2}><div><a  onClick={()=>testModal({open:true, modalType:'EarningsPerShare', instrument:instrument, background:Icon5})}><img className='linkClass' src={Icon5} alt='Earnings' title='Earnings'/></a></div></Grid>
+  <Grid item xs={2}><div><a  onClick={()=>testModal({open:true, modalType:'Responsiblity', instrument:instrument, background:Icon6})}><img className='linkClass' src={Icon6} alt='Social Responsiblity' title='Social Responsibility'/></a></div></Grid>
 </Grid>
+</div>
 <div className='descriptionRow'>{instrument.Description}</div>
 <NavBar /> 
     </div>
     </div>
-
       
 
       

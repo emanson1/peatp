@@ -5,9 +5,9 @@ export default function GrossMarginModal (props) {
   const instrument=modalProps.instrument;
   
     return(
-        <div className='cardContainer'>
-      <Grid container direction="row" justify="center" alignItems="center">
-        <Grid xs={12} item >Dashboard</Grid>
+      <div className='cardContainer'>
+      <Grid className='cardContainerTitle' container direction="row" justify="center" alignItems="center">
+       <Grid xs={12} item >Dashboard</Grid>
         </Grid>
      </div>
     

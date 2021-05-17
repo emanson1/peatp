@@ -51,34 +51,17 @@ const ModalRoot = props => {
 
 
 return (
-//   <div>
-   
-//     <Modal
-//       open={props.open}
-//       onClose={props.handleClose}
-//       aria-labelledby="simple-modal-title"
-//       aria-describedby="simple-modal-description"
-//     >
-// <div>
-
-// </div>
-
-//     </Modal>
-//   </div>
-
-// <div>
-//</div>   
+  
 <Dialog
   open={props.open}
   onClose={props.handleClose}
   aria-labelledby="simple-modal-title"
   aria-describedby="simple-modal-description"
 >
-<div className='modalRoot'>
-
+<div style={{height:'550px'}}>
 <Grid container className='blue'>
   <Grid item xs={1}>
-<CloseIcon onClick={props.hideModal}/>
+<CloseIcon className='white' onClick={props.hideModal}/>
 </Grid>
 <Grid item xs={10}>
      <div className='modalTitle'> {`${instrument.Title} (${instrument.Symbol})`}</div>
