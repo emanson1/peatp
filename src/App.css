@@ -20,7 +20,7 @@ width:300px;
   border:blue 3px solid;
   border-radius: 10px;
   max-height: 300px;
-  overflow-y:scroll;
+  overflow: hidden; 
   padding:15px;
   background: linear-gradient(white, #9198e5);
   
