@@ -169,11 +169,11 @@ overflow-x:scroll;
   font-size:small;
   height:24px;
   width:24px;
-  border:2px solid white;    
+  /* border:2px solid white;    
     border-radius:50%;
     -moz-border-radius:50%;
     -webkit-border-radius:50%;
-    
+     */
 }
 .linkClass:hover
 {
@@ -182,7 +182,7 @@ overflow-x:scroll;
   height:30px;
   background-color:blue;
   width:30px;
-  border:4px solid orange;    
+  border:2px solid white;  
     border-radius:50%;
     -moz-border-radius:50%;
     -webkit-border-radius:50%;
