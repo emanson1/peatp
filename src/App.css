@@ -185,9 +185,7 @@ overflow-x:scroll;
   height:30px;
   background-color:red;
   width:30px;
-  border:2px solid white
-  
-  ;  
+  border:2px solid white;  
     border-radius:50%;
     -moz-border-radius:50%;
     -webkit-border-radius:50%;
@@ -224,8 +222,14 @@ overflow-x:scroll;
   padding-bottom: 5px;
   text-align: center;
 }
-.cardContainer{
+.cardContainer1{
 opacity:100;
+}
+.loginContainer{
+  background-color:white;
+  min-height:500px;
+  border-radius: 10px 10px 10px 10px;
+  border:1pt blue solid;  
 }
 .cardContainerTitle{
 background-color:blue;
@@ -233,6 +237,7 @@ color:white;
 /* font-weight:bold; */
 font-size:18pt;
 text-align:center;
+
 }
 .cardContainerBox{
   background-color:lightgray;

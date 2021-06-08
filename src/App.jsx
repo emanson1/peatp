@@ -6,6 +6,7 @@ import {Paper, Grid, Box, Typography} from '@material-ui/core';
 import TinderCard from 'react-tinder-card';
 import DataLayer from './Pages/DataLayer';
 import Instruments from './Pages/Instruments';
+import LoggedIn from './Pages/LoggedIn';
 import NavBar from './Pages/NavBar';
 import {View} from 'react-native';
 import ModalRoot from './Shared/ModalRoot';
@@ -47,21 +48,23 @@ function App(props) {
   const [selectedTab, setSelectedTab] = useState('instrument');
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
-  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
  
   return (
     <React.Fragment>
+      {!isLoggedIn && <LoggedIn handleClose={hideModal} setIsLoggedIn={setIsLoggedIn}/> }
+      {isLoggedIn && 
      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Box>
+     <Box>
       {/* //modalTypes{modalTypes.toString()} */}
-    <Router>
-    {/* <Route exact path='/' component={tabs[selectedTab]}/> */}
+      <Router>
     <Route exact path='/' component={Instruments}/>
     </Router>
     </Box>
-       </View>
-       {modalType!==undefined && modalType!==null && <ModalRoot handleClose={hideModal} open={open}/> }
+       </View>}
+       {modalType!==undefined && modalType!==null && isLoggedIn && <ModalRoot handleClose={hideModal} open={open}/> }
+       
        </React.Fragment>
 
        )

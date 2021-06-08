@@ -1,6 +1,6 @@
 {
-  "name": "WMS_PMR",
-  "version": "1.22.4",
+  "name": "blueville",
+  "version": "1.2.0",
   "private": true,
   "homepage": ".",
   "dependencies": {
@@ -20,7 +20,7 @@
     "classnames": "^2.2.6",
     "connected-react-router": "5.0.1",
     "date-fns": "^2.19.0",
-    "formik": "^2.2.6",
+    "formik": "^2.2.9",
     "formik-material-ui": "0.0.16",
     "moment": "^2.22.2",
     "mui-datatables": "^3.7.6",

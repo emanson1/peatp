@@ -14,14 +14,19 @@ export default function DebtToEquityRatioModal (props) {
     padding:'30px',
 
   };
-
+const divText ={
+opacity:'70%',
+backgroundColor:'white',
+minHeight:'380px',
+padding:'20px'
+}
   return(
     <div className='cardContainer'>
     <Grid className='cardContainerTitle' container direction="row" justify="center" alignItems="center">
           <Grid xs={12} item >Debt to Equity Ratio Modal</Grid>
           </Grid>
           <Box style={divImage} >
-            {instrument.DebtToEquityRatio}</Box>
+            <div style={divText}>{instrument.DebtToEquityRatio}</div></Box>
        </div>
       )
     };
