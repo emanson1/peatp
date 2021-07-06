@@ -7,6 +7,7 @@ import TinderCard from 'react-tinder-card';
 import DataLayer from './Pages/DataLayer';
 import Instruments from './Pages/Instruments';
 import LoggedIn from './Pages/LoggedIn';
+import OpeningSlider from './Pages/OpeningSlider';
 import NavBar from './Pages/NavBar';
 import {View} from 'react-native';
 import ModalRoot from './Shared/ModalRoot';
@@ -53,8 +54,9 @@ function App(props) {
  
   return (
     <React.Fragment>
-      {!isLoggedIn && <LoggedIn handleClose={hideModal} setIsLoggedIn={setIsLoggedIn}/> }
+     {!isLoggedIn && <OpeningSlider handleClose={hideModal} setIsLoggedIn={setIsLoggedIn}/> }
       {isLoggedIn && 
+      
      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
      <Box>
       {/* //modalTypes{modalTypes.toString()} */}

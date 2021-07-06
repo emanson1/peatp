@@ -121,16 +121,18 @@ const InstrumentWrapper = props => {
   return (
     instrument !== undefined && instrument !==null &&
     <React.Fragment>
-      <Grid container className='cardTitle'>
+      <Grid container className={instrument.Title.length<20?'cardTitle':'cardTitleSmall'}>
       <Grid item xs={2} className='linkClassPlain'><a  onClick={()=>testModal({open:true, modalType:'Wishlist', instrument:instrument})}>Wishlist</a></Grid>
-        <Grid item xs={8}>{`${instrument.Title} (${instrument.Symbol})`}</Grid>
-        <Grid item xs={2} className='linkClassPlain'>Account</Grid>
+        <Grid item xs={8}>{`${instrument.Title} (${instrument.Symbol})`}<br/></Grid>
+        <Grid item xs={2} className='linkClassPlain'><a  onClick={()=>testModal({open:true, modalType:'Wishlist', instrument:instrument})}>Account&nbsp;&nbsp;&nbsp;</a></Grid>
       </Grid>
       <div className='imageDiv' style={{
       backgroundImage: `url(${instrument.Icon})`,
       backgroundPosition: 'center',
       backgroundSize: '100% 100%',
-      backgroundRepeat: 'no-repeat'
+      backgroundRepeat: 'no-repeat',
+      borderLeft:'#8ac640 solid 2px',
+      borderRight:'#8ac640 solid 2px',
     }}><div
     style={{
       width: '100%',

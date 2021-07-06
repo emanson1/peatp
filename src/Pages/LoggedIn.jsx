@@ -11,6 +11,7 @@ import {Paper, Grid, Box} from '@material-ui/core';
 
 
 
+
 function LoggedIn (props) {
   
   const {setIsLoggedIn} = props;
@@ -50,7 +51,7 @@ const getSchema = () => {
       <Form>
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
      <div className='cardContainer'>
-     <div className='loginContainer'>
+     {/* <div className='loginContainer'> */}
      <Box>
        <Grid container className='cardTitle'>
 
@@ -96,7 +97,8 @@ const getSchema = () => {
       </Grid></Grid>
        
     </Box>
-  </div></div>
+  </div>
+  {/* </div> */}
     </View>
     </Form>
  

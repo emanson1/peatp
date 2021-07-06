@@ -10,7 +10,7 @@ import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './store/configureStore';
-
+import OpeningSlider from './Pages/OpeningSlider';
 const base = document.querySelector('base');
 const baseUrl = base && base.href || '';
 const history = createHashHistory({basename: baseUrl});
@@ -28,7 +28,6 @@ ReactDOM.render(
   <Provider store={store}>
    <ConnectedRouter history={history}>
     <App />
- 
   </ConnectedRouter>
   </Provider>,
   rootElement);
