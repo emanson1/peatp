@@ -66,7 +66,7 @@ const getSchema = () => {
         {/* <Grid xs={12} lg={4} style={{verticalAlign:'bottom'}}>
       User Name:
       </Grid> */}
-      <Grid xs={12} lg={8}>
+      <Grid xs={12}>
       <Field component={FormikTextField}
         variant="outlined"
         label="User Name"
@@ -80,7 +80,7 @@ const getSchema = () => {
         {/* <Grid xs={12} lg={4}>
       Password:
       </Grid> */}
-      <Grid xs={12} lg={8}>
+      <Grid xs={12}>
         <Field component={FormikTextField}
         variant="outlined"
         label="Password"
@@ -93,7 +93,7 @@ const getSchema = () => {
       
         </Grid>
       <Grid container>
-      <Grid xs={12} lg={4}>
+      <Grid xs={12}>
         {values.password && values.email && !(errors.email) && 
         <div><button type="submit" style={{backgroundColor:'#49b64a', border:'0px solid #444c4f', fontWeight:'bold', width:'100%', height:'30px', color:'#444c4f', fontSize:'14pt'}}>
           Submit
