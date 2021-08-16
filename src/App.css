@@ -341,6 +341,34 @@
   .swipe:last-of-type {
   
   }
+  .loginTitle {
+    background-color: #444c4f;
+    font:#49b64a;
+    font-size: 16pt;
+    font-family: 'Segoe Script';
+    color:#49b64a;
+    /* border-left: 2px solid #444c4f;
+    border-right: 2px solid #444c4f;  */
+    /* padding-bottom: 5px;  */
+    /* border-radius: 10px 10px 0 0; */
+    /* border-top: 2px solid #8ac640;
+    border-left: 2px solid #8ac640;
+    border-right: 2px solid #8ac640; */
+    font-weight:bold;
+  }
+  .loginFoot {
+    background-color: #444c4f;
+    font:#49b64a;
+    font-size: 12pt;
+    font-family: 'Segoe Script';
+    color:#49b64a;
+    /* padding-bottom: 5px;  */
+    border-radius: 0 0 10px 10px;
+    /* border-top: 2px solid #8ac640;
+    border-left: 2px solid #8ac640;
+    border-right: 2px solid #8ac640; */
+    font-weight:bold;
+  }
   
   .card h3 {
     position: absolute;

@@ -8,6 +8,7 @@ import NavBarDetails from './NavBarDetails';
 import Description from './Description';
 import {View} from 'react-native';
 import {Paper, Grid, Box} from '@material-ui/core';
+import Logo from '../Images/LOGO.png';
 
 
 
@@ -49,21 +50,22 @@ const getSchema = () => {
       /* and other goodies */
     }) => (
       <Form>
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-     <div className='cardContainer'>
-     {/* <div className='loginContainer'> */}
-     <Box>
-       <Grid container className='cardTitle'>
+    
+      <div style={{backgroundColor:'white',border: '2px solid #444c4f',  borderRadius: '10px 10px 10px 10px'}}>
+     <div className='cardContainer' style={{  height:'60vh', width: '90vw', backgroundImage: `url(${Logo})`, backgroundRepeat: 'no-repeat',  backgroundSize: 'contain', backgroundPosition:'center top', textAlign:'center', minHeight:'100%', minWidth:'40vh'}} >
+      <Grid container className='loginTitle'>
 
       <Grid item xs={2}></Grid>
         <Grid item xs={8}>Please Login:</Grid>
         <Grid item xs={2} >
         </Grid>
       </Grid>
-      <Grid container>
-        <Grid xs={12} lg={4}>
-      UserName:
-      </Grid>
+      </div>
+     <div style={{position: 'relative', bottom: '0', left: '0', width:'100%' }}>
+     <Grid container>
+        {/* <Grid xs={12} lg={4} style={{verticalAlign:'bottom'}}>
+      User Name:
+      </Grid> */}
       <Grid xs={12} lg={8}>
       <Field component={FormikTextField}
         variant="outlined"
@@ -75,9 +77,9 @@ const getSchema = () => {
       </Grid>
       </Grid>
       <Grid container>
-        <Grid xs={12} lg={4}>
+        {/* <Grid xs={12} lg={4}>
       Password:
-      </Grid>
+      </Grid> */}
       <Grid xs={12} lg={8}>
         <Field component={FormikTextField}
         variant="outlined"
@@ -86,20 +88,31 @@ const getSchema = () => {
         name="password"
         fullWidth 
         />
-        </Grid></Grid>
-        <Grid container>
-        <Grid xs={12} lg={4}>
-        {errors.password && touched.password && errors.password}
-        <button type="submit">
-          Submit
-        </button>
+        </Grid>
       
-      </Grid></Grid>
-       
-    </Box>
-  </div>
-  {/* </div> */}
-    </View>
+      
+        </Grid>
+      <Grid container>
+      <Grid xs={12} lg={4}>
+        {values.password && values.email && !(errors.email) && 
+        <div><button type="submit" style={{backgroundColor:'#49b64a', border:'0px solid #444c4f', fontWeight:'bold', width:'100%', height:'30px', color:'#444c4f', fontSize:'14pt'}}>
+          Submit
+        </button><br/></div>}
+        <br/>
+      </Grid>
+      </Grid>
+       </div> 
+      <Grid container className='loginFoot'>
+      <Grid item xs={2}></Grid>
+        <Grid item xs={8}>&#169; Pinch Street LLC.</Grid>
+        <Grid item xs={2} >
+        </Grid>
+      </Grid>   
+      
+      
+     
+     </div>
+    
     </Form>
  
       )}

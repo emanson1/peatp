@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import logo from './logo.svg';
 import {Route, BrowserRouter as Router} from 'react-router-dom';
-import './App.css';
+import '../src/App.css';
 import {Paper, Grid, Box, Typography} from '@material-ui/core';
 import TinderCard from 'react-tinder-card';
 import DataLayer from './Pages/DataLayer';
 import Instruments from './Pages/Instruments';
 import LoggedIn from './Pages/LoggedIn';
-import OpeningSlider from './Pages/OpeningSlider';
 import NavBar from './Pages/NavBar';
 import {View} from 'react-native';
 import ModalRoot from './Shared/ModalRoot';
@@ -53,22 +52,19 @@ function App(props) {
 
  
   return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     <React.Fragment>
-     {!isLoggedIn && <OpeningSlider handleClose={hideModal} setIsLoggedIn={setIsLoggedIn}/> }
+     {!isLoggedIn && <LoggedIn handleClose={hideModal} setIsLoggedIn={setIsLoggedIn}/> }
       {isLoggedIn && 
-      
-     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-     <Box>
-      {/* //modalTypes{modalTypes.toString()} */}
       <Router>
     <Route exact path='/' component={Instruments}/>
     </Router>
-    </Box>
-       </View>}
+    }
        {modalType!==undefined && modalType!==null && isLoggedIn && <ModalRoot handleClose={hideModal} open={open}/> }
        
        </React.Fragment>
-
+       </View>
+ 
        )
 }
 const mapStateToProps = (state) => ({

@@ -13,7 +13,8 @@ import SettingsModal from '../Modals/SettingsModal';
 import DashboardModal from '../Modals/DashboardModal';
 import WishlistModal from '../Modals/WishlistModal';
 import FutureModal from '../Modals/FutureModal';
-import CloseIcon from '@material-ui/icons/Close';
+import SwipedModal from '../Modals/SwipedModal';
+
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
@@ -32,8 +33,9 @@ const Modals= {
        Settings: SettingsModal,
        Dashboard: DashboardModal,
        Wishlist: WishlistModal,
+       Swiped: SwipedModal,
   //   marketPlace:MarketPlaceModal,
-  //   swiped: SwipedModal,
+       
   //   account: AccountModal
    };
    
@@ -59,14 +61,6 @@ return (
   aria-describedby="simple-modal-description"
 >
 <div style={{height:'550px'}}>
-<Grid container className='blue'>
-  <Grid item xs={1}>
-<CloseIcon className='white' onClick={props.hideModal}/>
-</Grid>
-<Grid item xs={10}>
-     <div className='modalTitle'> {`${instrument.Title} (${instrument.Symbol})`}</div>
-  </Grid>
-</Grid>
 <SpecificModal handleClose={props.hideModal} modalProps={modalProps}/>
 </div>
 </Dialog>
