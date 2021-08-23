@@ -56,11 +56,11 @@ return (
   
 <Dialog
   open={props.open}
-  onClose={props.handleClose}
+  onClose={props.hideModal}
   aria-labelledby="simple-modal-title"
   aria-describedby="simple-modal-description"
 >
-<div style={{height:'550px'}}>
+<div>
 <SpecificModal handleClose={props.hideModal} modalProps={modalProps}/>
 </div>
 </Dialog>
