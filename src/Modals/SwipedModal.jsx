@@ -14,8 +14,24 @@ import CloseIcon from '@material-ui/icons/Close';
 
 function Swiped (props) {
   
-  const {rej, sel} = props.modalProps;
+const {rej, sel, instruments, setInstruments,setRej,setSel} = props.modalProps;
+const [rejLocal,setRejLocal]=useState(rej);
+const [selLocal,setSelLocal]=useState(sel);
 const {handleClose}=props;
+function undoRejection (instrument){
+  instruments.push(instrument);
+  setInstruments(instruments);
+  let _rej=rej.filter(a=>a.Id!==instrument.Id);
+  setRej(_rej);
+  setRejLocal(_rej);
+}
+function undoSelection (instrument){
+  instruments.push(instrument);
+  setInstruments(instruments);
+  let _sel=sel.filter(a=>a.Id!==instrument.Id);
+  setSel(_sel);
+  setSelLocal(_sel);
+}
 return (
   <div className='cardContainer'>
   <Grid container className='blue'>
@@ -32,8 +48,8 @@ return (
         </Grid>
 
   <Grid container>
-    <Grid item xs={6}><div>{rej.map((item,index)=>{return( <div key={index}>{item.Title}<br/></div>);})}</div></Grid>
-    <Grid item xs={6}><div>{sel.map((item,index)=>{return( <div key={index}>{item.Title}<br/></div>);})}</div></Grid>
+    <Grid item xs={6}><div>Rejected<hr/>{rejLocal.map((item,index)=>{return( <div key={index}>{item.Title}<button onClick={()=>undoRejection(item)}>Undo</button><br/></div>);})}</div></Grid>
+    <Grid item xs={6}><div>Selected<hr/>{selLocal.map((item,index)=>{return( <div key={index}>{item.Title}<button onClick={()=>undoSelection(item)}>Undo</button><br/></div>);})}</div></Grid>
   </Grid>
   </div>
 )

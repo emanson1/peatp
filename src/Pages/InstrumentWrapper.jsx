@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const InstrumentWrapper = props => {
-  const {handleClose, handleOpen, rej, sel} = props;
+  const {handleClose, handleOpen, rej, sel, instruments, setInstruments,setRej,setSel} = props;
   const classes = useStyles();
   const initialMetrics = [{ descr: '52 Week Low/High', metric1: { name: '52WeekLow', className: 'red' }, metric2: { name: '52WeekHigh', className: 'red' } }, { descr: 'BVPS Annual/Qrtly', metric1: { name: 'bookValuePerShareAnnual', className: 'conditional' }, metric2: { name: 'bookValuePerShareQuarterly', className: 'conditional' } }];
   const yahooApiKey="{'x-rapidapi-key': 'c4ec02c063msheb9801e4d3fbff0p1b74b2jsn0620426f7540','x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com'}";
@@ -161,7 +161,7 @@ const InstrumentWrapper = props => {
 </Grid>
 </div>
 <div className='descriptionRow'>{instrument.Description}</div>
-<NavBar rej={rej} sel={sel} instrument={instrument} openModal={openModal}/> 
+<NavBar rej={rej} sel={sel} instrument={instrument} openModal={openModal} instruments={instruments} setInstruments={setInstruments} setSel={setSel} setRej={setRej}/> 
     </div>
     </div>
       

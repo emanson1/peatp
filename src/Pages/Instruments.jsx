@@ -66,7 +66,7 @@ function Instruments(props) {
   const [sel, setSel] = useState([]);       
   const [rej, setRej] = useState([]);       
   
-  const Card = ({ image, color,instrument,handleOpen,handleClose,selectedTabDetails, rej, sel, instruments, setInstruments }) => {
+  const Card = ({ image, color,instrument,handleOpen,handleClose,selectedTabDetails, rej, sel, instruments, setInstruments, setRej,setSel }) => {
     // To move the card as the user drags the cursor
     const motionValue = useMotionValue(0);
     
@@ -140,7 +140,7 @@ function Instruments(props) {
         }
         }}
       >
-          <InstrumentWrapper handleOpen={handleOpen}  handleClose={handleClose} selectedTabDetails={selectedTabDetails} instrument={instrument} rej={rej} sel={sel}/>
+          <InstrumentWrapper handleOpen={handleOpen}  handleClose={handleClose} selectedTabDetails={selectedTabDetails} instrument={instrument} rej={rej} sel={sel} instruments={instruments} setInstruments={setInstruments} setSel={setSel} setRej={setRej}/>
     
     
       </Frame>
@@ -159,7 +159,7 @@ function Instruments(props) {
       {instruments && instruments.map((instrument,i) =>
 
           <div className='card'>
-          	<Card key={i} instrument={instrument} rej={rej} sel={sel} setInstruments={setInstruments} instruments={instruments}></Card>
+          	<Card key={i} instrument={instrument} rej={rej} sel={sel} setInstruments={setInstruments} instruments={instruments} setRej={setRej} setSel={setSel}></Card>
           </div>
           
         )}
