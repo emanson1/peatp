@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const InstrumentWrapper = props => {
-  const {handleClose, handleOpen} = props;
+  const {handleClose, handleOpen, rej, sel} = props;
   const classes = useStyles();
   const initialMetrics = [{ descr: '52 Week Low/High', metric1: { name: '52WeekLow', className: 'red' }, metric2: { name: '52WeekHigh', className: 'red' } }, { descr: 'BVPS Annual/Qrtly', metric1: { name: 'bookValuePerShareAnnual', className: 'conditional' }, metric2: { name: 'bookValuePerShareQuarterly', className: 'conditional' } }];
   const yahooApiKey="{'x-rapidapi-key': 'c4ec02c063msheb9801e4d3fbff0p1b74b2jsn0620426f7540','x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com'}";
@@ -115,16 +115,16 @@ const InstrumentWrapper = props => {
     setValue(newValue);
     event.stopPropagation();
   };
-  var testModal = (modalProps)=>{
+  var openModal = (modalProps)=>{
     props.showModal(modalProps);
  }
   return (
     instrument !== undefined && instrument !==null &&
     <React.Fragment>
       <Grid container className={instrument.Title.length<20?'cardTitle':'cardTitleSmall'}>
-      <Grid item xs={2} className='linkClassPlain'><a  onClick={()=>testModal({open:true, modalType:'Wishlist', instrument:instrument})}>Wishlist</a></Grid>
+      <Grid item xs={2} className='linkClassPlain'><a  onClick={()=>openModal({open:true, modalType:'Wishlist', instrument:instrument})}>Wishlist</a></Grid>
         <Grid item xs={8}>{`${instrument.Title} (${instrument.Symbol})`}<br/></Grid>
-        <Grid item xs={2} className='linkClassPlain'><a  onClick={()=>testModal({open:true, modalType:'Wishlist', instrument:instrument})}>Account&nbsp;&nbsp;&nbsp;</a></Grid>
+        <Grid item xs={2} className='linkClassPlain'><a  onClick={()=>openModal({open:true, modalType:'Wishlist', instrument:instrument})}>Account&nbsp;&nbsp;&nbsp;</a></Grid>
       </Grid>
       <div className='imageDiv' style={{
       backgroundImage: `url(${instrument.Icon})`,
@@ -152,16 +152,16 @@ const InstrumentWrapper = props => {
 <div   className='linkClassRow' >
   <div className='linkClassContainer'>
   <Grid container direction='row'>
-  <Grid item xs={2}><div><a  onClick={()=>testModal({open:true, modalType:'DebtToEquityRatio', instrument:instrument, background:Icon1})}><img className='linkClass' src={Icon1} alt='Debt/Inc' title='Debt/Inc'/></a></div></Grid>
-  <Grid item xs={2}><div><a  onClick={()=>testModal({open:true, modalType:'MarketCapacity', instrument:instrument, background:Icon2})}><img className='linkClass' src={Icon2} alt='Market Capitalization' title='Market Capitalization'/></a></div></Grid>
-  <Grid item xs={2}><div><a  onClick={()=>testModal({open:true, modalType:'NetMargin', instrument:instrument, background:Icon3})}><img className='linkClass' src={Icon3} alt='Net Margin' title='Net MArgin'/></a></div></Grid>
-  <Grid item xs={2}><div><a  onClick={()=>testModal({open:true, modalType:'Future', instrument:instrument, background:Icon4})}><img className='linkClass' src={Icon4} alt='Future' title='Future'/></a></div></Grid>
-  <Grid item xs={2}><div><a  onClick={()=>testModal({open:true, modalType:'EarningsPerShare', instrument:instrument, background:Icon5})}><img className='linkClass' src={Icon5} alt='Earnings' title='Earnings'/></a></div></Grid>
-  <Grid item xs={2}><div><a  onClick={()=>testModal({open:true, modalType:'Responsiblity', instrument:instrument, background:Icon6})}><img className='linkClass' src={Icon6} alt='Social Responsiblity' title='Social Responsibility'/></a></div></Grid>
+  <Grid item xs={2}><div><a  onClick={()=>openModal({open:true, modalType:'DebtToEquityRatio', instrument:instrument, background:Icon1})}><img className='linkClass' src={Icon1} alt='Debt/Inc' title='Debt/Inc'/></a></div></Grid>
+  <Grid item xs={2}><div><a  onClick={()=>openModal({open:true, modalType:'MarketCapacity', instrument:instrument, background:Icon2})}><img className='linkClass' src={Icon2} alt='Market Capitalization' title='Market Capitalization'/></a></div></Grid>
+  <Grid item xs={2}><div><a  onClick={()=>openModal({open:true, modalType:'NetMargin', instrument:instrument, background:Icon3})}><img className='linkClass' src={Icon3} alt='Net Margin' title='Net MArgin'/></a></div></Grid>
+  <Grid item xs={2}><div><a  onClick={()=>openModal({open:true, modalType:'Future', instrument:instrument, background:Icon4})}><img className='linkClass' src={Icon4} alt='Future' title='Future'/></a></div></Grid>
+  <Grid item xs={2}><div><a  onClick={()=>openModal({open:true, modalType:'EarningsPerShare', instrument:instrument, background:Icon5})}><img className='linkClass' src={Icon5} alt='Earnings' title='Earnings'/></a></div></Grid>
+  <Grid item xs={2}><div><a  onClick={()=>openModal({open:true, modalType:'Responsiblity', instrument:instrument, background:Icon6})}><img className='linkClass' src={Icon6} alt='Social Responsiblity' title='Social Responsibility'/></a></div></Grid>
 </Grid>
 </div>
 <div className='descriptionRow'>{instrument.Description}</div>
-<NavBar /> 
+<NavBar rej={rej} sel={sel} instrument={instrument} openModal={openModal}/> 
     </div>
     </div>
       
