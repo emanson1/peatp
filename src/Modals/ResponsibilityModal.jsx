@@ -1,36 +1,30 @@
 import React from 'react';
 import {Grid, Box} from '@material-ui/core';
+import '../App.css';
 import CloseIcon from '@material-ui/icons/Close';
-export default function ResponsibilityModal (props) {
+
+export default function SocialResponsibilityModal (props) {
   const {modalProps, handleClose}=props;
+
   const instrument=modalProps.instrument;
   const background=modalProps.background;
-  const divImage = {
-    backgroundImage: "url('" + background + "')",
-    backgroundColor:'lightgray',
-    backgroundSize: 'cover',    
-    height:'inherit',
-    border:'2px solid blue',
-    fontWeight:'bold',
-    padding:'30px',
+  const divImage=props.divImage;
+ 
+  return(
+    <div style={{backgroundColor:'#444c4f'}}>
+    <Grid container className={'modalContainer'}>
+  <Grid item xs={1}>
+<CloseIcon className='white' onClick={handleClose}/>
+</Grid>
+<Grid item xs={10}>
+     <div className={'modalTitle'}> {`${instrument.Title} (${instrument.Symbol})`}</div>
+  </Grid>
+</Grid>
 
-  };  
-    return(
-      <div className='cardContainer'><Grid container className='blue'>
-      <Grid item xs={1}>
-    <CloseIcon className='white' onClick={handleClose}/>
-    </Grid>
-    <Grid item xs={10}>
-         <div className='modalTitle'> {`${instrument.Title} (${instrument.Symbol})`}</div>
-      </Grid>
-    </Grid>
-    
-      <Grid className='cardContainerTitle' container direction="row" justify="center" alignItems="center">
-       <Grid xs={12} item >Social Responsibility</Grid>
-        </Grid>
-        <Box style={divImage}>{instrument.SocialResponsibility}</Box>
-     </div>
-    
-     
-    )
-  };
+    <Grid container direction="row" justify="center" alignItems="center">
+          <Grid xs={12} className={'modalType'} item >Social Responsiblity Modal</Grid>
+          </Grid>
+          <Box style={divImage} >
+            <div className={'modalText'}>{instrument.SocialResponsibility}</div></Box>
+            </div>)
+    };

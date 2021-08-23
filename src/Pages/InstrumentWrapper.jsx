@@ -5,6 +5,7 @@ import {showModal, hideModal} from '../actions/bluevilleActions';
 import Marquee from 'react-double-marquee';
 import NavBar from './NavBar';
 import { connect } from 'react-redux';
+import Logo from '../Images/LOGO.png';
 import FIconBankMoney from '../Images/FIconBankMoney.png';
 import FIconBlockPyramid from '../Images/FIconBlockPyramid.png';
 import FIconCoinDollarSign from '../Images/FIconCoinDollarSign.png';
@@ -161,7 +162,7 @@ const InstrumentWrapper = props => {
 </Grid>
 </div>
 <div className='descriptionRow'>{instrument.Description}</div>
-<NavBar rej={rej} sel={sel} instrument={instrument} openModal={openModal} instruments={instruments} setInstruments={setInstruments} setSel={setSel} setRej={setRej}/> 
+<NavBar rej={rej} sel={sel} instrument={instrument} openModal={openModal({background:Logo})} instruments={instruments} setInstruments={setInstruments} setSel={setSel} setRej={setRej}/> 
     </div>
     </div>
       

@@ -51,6 +51,19 @@ const ModalRoot = props => {
 
 
 
+const divImage = {
+  backgroundImage: "url('" + modalProps.background + "')",
+  backgroundColor:'lightgray',
+  backgroundSize: 'contain',
+  backgroundPosition:'center center',
+  backgroundRepeat: 'no-repeat',
+  height:'inherit',
+  border:'2px solid #444c4f',
+  fontWeight:'bold',
+  padding:'30px',
+  borderRadius: '10px 10px 10px 10px'
+
+};
 
 return (
   
@@ -61,7 +74,7 @@ return (
   aria-describedby="simple-modal-description"
 >
 <div>
-<SpecificModal handleClose={props.hideModal} modalProps={modalProps}/>
+<SpecificModal handleClose={props.hideModal} modalProps={modalProps} divImage={divImage}/>
 </div>
 </Dialog>
 

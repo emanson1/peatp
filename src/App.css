@@ -8,6 +8,33 @@
     /* background: linear-gradient(#fff, #999); */
     background: linear-gradient(#49b64a, #dae13a);
   }
+  /* modal styles */
+.modalType{
+color:white;
+text-align:center;
+font-size:14pt;
+background-color:#444c4f;
+}
+.modalContainer {
+  border:2px solid #49b64a;
+  font-family: 'Segoe Script';
+  background-color:#49b64a;
+  border-radius: 0px 0px 10px 10px;  
+}
+.modalText {
+  opacity:70%;
+  border-radius: 10px 10px 10px 10px;
+  background-color:white;
+  min-height:380px;
+  padding:20px;
+}
+.modalTitle{
+text-align:center;
+color:white;
+font-size:14pt;
+border-radius: 0px 0px 10px 10px;
+};
+/* end modal styles */
   .modalClass{
   background-color:white;
   opacity: 0.9;

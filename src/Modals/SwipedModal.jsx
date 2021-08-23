@@ -32,26 +32,33 @@ function undoSelection (instrument){
   setSel(_sel);
   setSelLocal(_sel);
 }
-return (
-  <div className='cardContainer'>
-  <Grid container className='blue'>
-<Grid item xs={1}>
+const divImage=props.divImage;
+ 
+  return(
+    <div style={{backgroundColor:'#444c4f'}}>
+    <Grid container className={'modalContainer'}>
+  <Grid item xs={1}>
 <CloseIcon className='white' onClick={handleClose}/>
 </Grid>
 <Grid item xs={10}>
-   <div className='modalTitle'> Swiped Instruments</div>
-</Grid>
+     <div className={'modalTitle'}>Swiped Instruments</div>
+  </Grid>
 </Grid>
 
-  <Grid className='cardContainerTitle' container direction="row" justify="center" alignItems="center">
-        <Grid xs={12} item >Activity this session</Grid>
+    <Grid container direction="row" justify="center" alignItems="center">
+          <Grid xs={12} className={'modalType'} item >Activity this session</Grid>
+          </Grid>
+          <Box style={divImage} >
+            <div className={'modalText'}><Grid className='cardContainerTitle' container direction="row" justify="center" alignItems="center">
+        <Grid xs={12} item ></Grid>
         </Grid>
 
   <Grid container>
     <Grid item xs={6}><div>Rejected<hr/>{rejLocal.map((item,index)=>{return( <div key={index}>{item.Title}<button onClick={()=>undoRejection(item)}>Undo</button><br/></div>);})}</div></Grid>
     <Grid item xs={6}><div>Selected<hr/>{selLocal.map((item,index)=>{return( <div key={index}>{item.Title}<button onClick={()=>undoSelection(item)}>Undo</button><br/></div>);})}</div></Grid>
   </Grid>
-  </div>
-)
-}
+</div></Box>
+            </div>)
+    };
+
 export default Swiped;
