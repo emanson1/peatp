@@ -22,7 +22,7 @@ export default function DebtToEquityRatioModal (props) {
 </Grid>
 
     <Grid container direction="row" justify="center" alignItems="center">
-          <Grid xs={12} className={'modalType'} item >Debt to Equity Ratio Modal</Grid>
+          <Grid xs={12} className={'modalType'} item >Debt to Equity Ratio</Grid>
           </Grid>
           <Box style={divImage} >
             <div className={'modalText'}>{instrument.DebtToEquityRatio}</div></Box>

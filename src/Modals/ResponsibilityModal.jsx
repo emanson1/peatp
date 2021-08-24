@@ -22,7 +22,7 @@ export default function SocialResponsibilityModal (props) {
 </Grid>
 
     <Grid container direction="row" justify="center" alignItems="center">
-          <Grid xs={12} className={'modalType'} item >Social Responsiblity Modal</Grid>
+          <Grid xs={12} className={'modalType'} item >Social Responsiblity</Grid>
           </Grid>
           <Box style={divImage} >
             <div className={'modalText'}>{instrument.SocialResponsibility}</div></Box>

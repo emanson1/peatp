@@ -22,7 +22,7 @@ export default function EarningsPerShareModal (props) {
 </Grid>
 
     <Grid container direction="row" justify="center" alignItems="center">
-          <Grid xs={12} className={'modalType'} item >Earnings Per Share Modal</Grid>
+          <Grid xs={12} className={'modalType'} item >Earnings Per Share</Grid>
           </Grid>
           <Box style={divImage} >
             <div className={'modalText'}>{instrument.EarningsPerShare}</div></Box>

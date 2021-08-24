@@ -22,7 +22,7 @@ export default function NetMarginModal (props) {
 </Grid>
 
     <Grid container direction="row" justify="center" alignItems="center">
-          <Grid xs={12} className={'modalType'} item >Net Margin Modal</Grid>
+          <Grid xs={12} className={'modalType'} item >Net Margin</Grid>
           </Grid>
           <Box style={divImage} >
             <div className={'modalText'}>{instrument.NetMargin}</div></Box>

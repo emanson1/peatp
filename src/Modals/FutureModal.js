@@ -22,7 +22,7 @@ export default function FutureModal (props) {
 </Grid>
 
     <Grid container direction="row" justify="center" alignItems="center">
-          <Grid xs={12} className={'modalType'} item >Future Modal</Grid>
+          <Grid xs={12} className={'modalType'} item >Future</Grid>
           </Grid>
           <Box style={divImage} >
             <div className={'modalText'}>{instrument.Future}</div></Box>

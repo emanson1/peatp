@@ -3,7 +3,7 @@ import {Grid, Box} from '@material-ui/core';
 import '../App.css';
 import CloseIcon from '@material-ui/icons/Close';
 
-export default function MArketCapacityModal (props) {
+export default function MarketCapacityModal (props) {
   const {modalProps, handleClose}=props;
 
   const instrument=modalProps.instrument;
@@ -11,7 +11,7 @@ export default function MArketCapacityModal (props) {
   const divImage=props.divImage;
  
   return(
-    <div style={{backgroundColor:'#444c4f'}}>
+    <div className={'modalDiv'}>
     <Grid container className={'modalContainer'}>
   <Grid item xs={1}>
 <CloseIcon className='white' onClick={handleClose}/>
@@ -22,7 +22,7 @@ export default function MArketCapacityModal (props) {
 </Grid>
 
     <Grid container direction="row" justify="center" alignItems="center">
-          <Grid xs={12} className={'modalType'} item >Market Capacity Modal</Grid>
+          <Grid xs={12} className={'modalType'} item >Market Capacity</Grid>
           </Grid>
           <Box style={divImage} >
             <div className={'modalText'}>{instrument.MarketCapacity}</div></Box>
