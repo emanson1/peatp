@@ -24,8 +24,8 @@ background-color:#444c4f;
   font-family: 'Segoe Script';
   background-color:#49b64a;
   border-radius: 0px 0px 10px 10px;  
-  
-}
+  }
+
 .modalText {
   opacity:70%;
   border-radius: 10px 10px 10px 10px;
@@ -34,6 +34,7 @@ background-color:#444c4f;
   max-width:300px;
   padding:20px;
 }
+
 .modalTitle{
 text-align:center;
 color:white;
@@ -44,11 +45,8 @@ border-radius: 0px 0px 10px 10px;
   .modalClass{
   background-color:white;
   opacity: 0.9;
-  /* height:400px;
-  width:300px; */
   }
   .descriptionRow{
-    /* background-color:#DCDCDC; */
     color:black;
     border:#444c4f 2px solid;
     border-radius: 10px;
@@ -58,20 +56,6 @@ border-radius: 0px 0px 10px 10px;
     background: linear-gradient(#ffff99, #dae13a); 
     
   }
-  /* #root>div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .app>div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-   */
   .row {
     flex-direction: row !important;
   }
