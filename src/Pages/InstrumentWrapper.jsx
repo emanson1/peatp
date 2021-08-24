@@ -88,18 +88,21 @@ const InstrumentWrapper = props => {
   
   async function setInstrumentState(){
     await fetch(finTechURL.toString().replace('{symbol}', instrument.Symbol)).then(results => results.json())
-    .then(data => {setData(data); setMetrics(data.metric);});
+    .then(data => {
+      setData(data);
+      setMetrics(data.metric);
+    })
 
-    await fetch(yahooURL.toString().replace('{symbol}', instrument.Symbol), 
-    {"method": "GET",
-	    "headers": {
-		"x-rapidapi-key": "c4ec02c063msheb9801e4d3fbff0p1b74b2jsn0620426f7540",
-		"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
-	}
-})
-.then(response => {
-	setYahooData(response);
-})
+//     await fetch(yahooURL.toString().replace('{symbol}', instrument.Symbol), 
+//     {"method": "GET",
+// 	    "headers": {
+// 		"x-rapidapi-key": "c4ec02c063msheb9801e4d3fbff0p1b74b2jsn0620426f7540",
+// 		"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
+// 	}
+// })
+// .then(response => {
+// 	setYahooData(response);
+// })
 .catch(err => {
 	console.error(err);
 });
