@@ -41,6 +41,7 @@ const Modals= {
    
  
 const ModalRoot = props => {
+  const background=props.background;
   const modalProps=props.modalProps;
   const modalType=props.modalType;
   const instrument=props.modalProps.instrument;
@@ -74,7 +75,7 @@ return (
   aria-describedby="simple-modal-description"
 >
 <div>
-<SpecificModal handleClose={props.hideModal} modalProps={modalProps} divImage={divImage}/>
+<SpecificModal handleClose={props.hideModal} modalProps={modalProps} divImage={divImage} />
 </div>
 </Dialog>
 

@@ -15,9 +15,10 @@ import CloseIcon from '@material-ui/icons/Close';
 function Swiped (props) {
   
 const {rej, sel, instruments, setInstruments,setRej,setSel} = props.modalProps;
+const {divImage} = props;
 const [rejLocal,setRejLocal]=useState(rej);
 const [selLocal,setSelLocal]=useState(sel);
-const {handleClose}=props;
+const {handleClose,background}=props;
 function undoRejection (instrument){
   instruments.push(instrument);
   setInstruments(instruments);
@@ -32,10 +33,11 @@ function undoSelection (instrument){
   setSel(_sel);
   setSelLocal(_sel);
 }
-const divImage=props.divImage;
+
+
  
   return(
-    <div style={{backgroundColor:'#444c4f'}}>
+    <div style={{backgroundColor:'#444c4f',midWidth:'300px'}}>
     <Grid container className={'modalContainer'}>
   <Grid item xs={1}>
 <CloseIcon className='white' onClick={handleClose}/>
@@ -53,9 +55,9 @@ const divImage=props.divImage;
         <Grid xs={12} item ></Grid>
         </Grid>
 
-  <Grid container>
-    <Grid item xs={6}><div>Rejected<hr/>{rejLocal.map((item,index)=>{return( <div key={index}>{item.Title}<button onClick={()=>undoRejection(item)}>Undo</button><br/></div>);})}</div></Grid>
-    <Grid item xs={6}><div>Selected<hr/>{selLocal.map((item,index)=>{return( <div key={index}>{item.Title}<button onClick={()=>undoSelection(item)}>Undo</button><br/></div>);})}</div></Grid>
+  <Grid container style={{minWidth:'300px'}}>
+    <Grid item xs={6} style={{borderRadius: '10px 10px 10px 10px',cellSpacing:'5px'}}><div style={{textAlign:'center'}}>Rejected<hr/>{rejLocal.map((item,index)=>{return( <div key={index}>{item.Title}<button onClick={()=>undoRejection(item)}>Undo</button><br/></div>);})}</div></Grid>
+    <Grid item xs={6} style={{borderRadius: '10px 10px 10px 10px',cellSpacing:'5px'}}><div style={{textAlign:'center'}}>Selected<hr/>{selLocal.map((item,index)=>{return( <div key={index}>{item.Title}<button onClick={()=>undoSelection(item)}>Undo</button><br/></div>);})}</div></Grid>
   </Grid>
 </div></Box>
             </div>)

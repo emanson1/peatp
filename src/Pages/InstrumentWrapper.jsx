@@ -165,7 +165,7 @@ const InstrumentWrapper = props => {
 </Grid>
 </div>
 <div className='descriptionRow'>{instrument.Description}</div>
-<NavBar rej={rej} sel={sel} instrument={instrument} openModal={openModal} instruments={instruments} setInstruments={setInstruments} setSel={setSel} setRej={setRej}/> 
+<NavBar rej={rej} sel={sel} instrument={instrument} background={Logo} openModal={openModal} instruments={instruments} setInstruments={setInstruments} setSel={setSel} setRej={setRej}/> 
     </div>
     </div>
       
