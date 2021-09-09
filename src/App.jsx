@@ -57,10 +57,15 @@ function App(props) {
      {!isLoggedIn && <LoggedIn handleClose={hideModal} setIsLoggedIn={setIsLoggedIn}/> }
       {isLoggedIn && 
       <Router>
-    <Route exact path='/' component={Instruments}/>
-    </Router>
+        <Route
+  exact path='/'
+  render={(props) => (
+    <Instruments {...props} setIsLoggedIn={setIsLoggedIn} />
+  )}
+/>
+      </Router>
     }
-       {modalType!==undefined && modalType!==null && isLoggedIn && <ModalRoot handleClose={hideModal} open={open}/> }
+       {modalType!==undefined && modalType!==null && <ModalRoot handleClose={hideModal} open={open}/> }
        
        </React.Fragment>
        </View>

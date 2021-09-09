@@ -14,7 +14,7 @@ import DashboardModal from '../Modals/DashboardModal';
 import WishlistModal from '../Modals/WishlistModal';
 import FutureModal from '../Modals/FutureModal';
 import SwipedModal from '../Modals/SwipedModal';
-
+import CreateNewAccountModal from '../Modals/CreateNewAccountModal';
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
@@ -34,6 +34,7 @@ const Modals= {
        Dashboard: DashboardModal,
        Wishlist: WishlistModal,
        Swiped: SwipedModal,
+       CreateNewAccount: CreateNewAccountModal
   //   marketPlace:MarketPlaceModal,
        
   //   account: AccountModal

@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const InstrumentWrapper = props => {
-  const {handleClose, handleOpen, rej, sel, instruments, setInstruments,setRej,setSel} = props;
+  const {handleClose, handleOpen, rej, sel, instruments, setInstruments,setRej,setSel,setIsLoggedIn} = props;
   const classes = useStyles();
   const initialMetrics = [{ descr: '52 Week Low/High', metric1: { name: '52WeekLow', className: 'red' }, metric2: { name: '52WeekHigh', className: 'red' } }, { descr: 'BVPS Annual/Qrtly', metric1: { name: 'bookValuePerShareAnnual', className: 'conditional' }, metric2: { name: 'bookValuePerShareQuarterly', className: 'conditional' } }];
   const yahooApiKey="{'x-rapidapi-key': 'c4ec02c063msheb9801e4d3fbff0p1b74b2jsn0620426f7540','x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com'}";
@@ -126,7 +126,7 @@ const InstrumentWrapper = props => {
     instrument !== undefined && instrument !==null &&
     <React.Fragment>
       <Grid container className={instrument.Title.length<20?'cardTitle':'cardTitleSmall'}>
-      <Grid item xs={2} className='linkClassPlain'><a  onClick={()=>openModal({open:true, modalType:'Wishlist', instrument:instrument})}>Wishlist</a></Grid>
+      <Grid item xs={2} className='linkClassPlain'><a  onClick={()=>setIsLoggedIn(false)}>LogOut</a></Grid>
         <Grid item xs={8}>{`${instrument.Title} (${instrument.Symbol})`}<br/></Grid>
         <Grid item xs={2} className='linkClassPlain'><a  onClick={()=>openModal({open:true, modalType:'Wishlist', instrument:instrument})}>Account&nbsp;&nbsp;&nbsp;</a></Grid>
       </Grid>

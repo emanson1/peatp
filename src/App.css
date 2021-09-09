@@ -9,6 +9,29 @@
     background: linear-gradient(#49b64a, #dae13a);
   }
   /* modal styles */
+.loginClass {
+margin-bottom:10px;
+background-color:white;
+border:0px solid white;
+font-family:'Segoe Script';
+font-weight:'bold';
+width:100%;
+height:30px;
+color:#49b64a;
+font-size:13pt;
+}
+.loginClass:hover {
+  margin-bottom:10px;
+  background-color:white;
+  border:0px solid white;
+  font-family:'Segoe Script';
+  font-weight:'bold';
+  width:100%;
+  height:30px;
+  color:blue;
+  font-size:13pt;
+  }
+  
 .modalType{
 color:white;
 text-align:center;
@@ -25,11 +48,15 @@ background-color:#444c4f;
   background-color:#49b64a;
   border-radius: 0px 0px 10px 10px;  
   }
-
 .modalText {
   opacity:.7;
   border-radius: 10px 10px 10px 10px;
   background-color:white;
+  min-height:380px;
+  max-width:300px;
+  padding:20px;
+}
+.modalLoginText {
   min-height:380px;
   max-width:300px;
   padding:20px;
