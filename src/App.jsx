@@ -48,11 +48,11 @@ function App(props) {
   const [selectedTab, setSelectedTab] = useState('instrument');
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
  
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    // <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     <React.Fragment>
      {!isLoggedIn && <LoggedIn handleClose={hideModal} setIsLoggedIn={setIsLoggedIn}/> }
       {isLoggedIn && 
@@ -68,7 +68,7 @@ function App(props) {
        {modalType!==undefined && modalType!==null && <ModalRoot handleClose={hideModal} open={open}/> }
        
        </React.Fragment>
-       </View>
+      //  </View>
  
        )
 }
