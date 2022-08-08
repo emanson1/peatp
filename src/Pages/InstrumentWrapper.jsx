@@ -361,6 +361,9 @@ const InstrumentWrapper = props => {
   );
 }
 
+
+
+
 const mapStateToProps = (state) => ({
   modalProps: state.blueville.modalProps
 });
